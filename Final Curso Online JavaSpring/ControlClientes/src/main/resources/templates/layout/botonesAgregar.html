@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <title>Botones Agregar</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <section th:fragment="botonesAgregar" class="py-4 mb-4 bg-light">
+            <div class="container">
+                <div class="row">            <!--Solo mostrar usuarios ADMIN-->
+                    <div class="col-md-3" sec:authorize="hasRole('ROLE_ADMIN')">
+                                    <!--color + hacer que se expanda-->
+                        <a href="#" class="btn btn-primary btn-block" 
+                            data-toggle="modal" data-target="#agregarCliente">
+                            <!--para que se abra codigo modal | Id del codigo modal-->
+                            <!--Agregamos icono de fontAwersome-->
+                            <i class="fas fa-plus"></i> [[#{accion.agregar}]] <!--Mensaje-->
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
